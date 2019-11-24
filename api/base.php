@@ -8,4 +8,9 @@ function select($table,$value){
     $sql = "select * from $table where `acc`='$value'"  ;
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
+function selectA($table){
+    global $pdo;
+    $sql = "select * from $table "  ;
+    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
