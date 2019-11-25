@@ -4,7 +4,7 @@
 <?php
 include_once ("./api/base.php");
 
-$data = selectA("skills");
+$data = selectA("skill");
 $i = 1;
 foreach($data as $row){
     ?>

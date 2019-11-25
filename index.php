@@ -32,7 +32,7 @@
         <div class="login">登入</div>
         <div class="middle">
             <div class="select">
-                <div><a href="?do=skills">專業技能 <i class="fas fa-angle-right"></i></a></div>
+                <div><a href="?do=skill">專業技能 <i class="fas fa-angle-right"></i></a></div>
                 <div><a href="?do=work">工作經歷 <i class="fas fa-angle-right"></i></a></div>
                 <div><a href="?do=license">證照 <i class="fas fa-angle-right"></i></a></div>
                 <div><a href="?do=cover_letter">自傳 <i class="fas fa-angle-right"></i></a></div>
@@ -45,7 +45,7 @@
                     if(file_exists($path)){
                         include ($path);
                     }else{
-                        include ("./api/skills.php");
+                        include ("./api/skill.php");
                     }
                 ?>
             </div>
