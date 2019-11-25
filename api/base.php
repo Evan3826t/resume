@@ -1,7 +1,7 @@
 <?php
 
 $dsn = "mysql:host=localhost;charset=utf8;dbname=resume";
-$pdo = new PDO($dsn,"root","123");
+$pdo = new PDO($dsn,"root","");
 
 function select($table,$value){
     global $pdo;
@@ -40,7 +40,7 @@ function edit($table, $id, $data){
         case "license": 
             $sql = "update $table set `license`='$data[0]' ";
         break;
-        case "coverLetter": 
+        case "information": 
             $sql = "update $table set `profile`='$data[0]' ";
         break;
     }

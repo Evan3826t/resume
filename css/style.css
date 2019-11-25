@@ -57,6 +57,15 @@
     top: 250px;
     padding: 50px;
 }
+#profile{
+    width: 450px;
+    height: 350px;
+    margin: auto;
+    background-color: ivory;
+    position: relative;
+    top: 250px;
+    padding: 50px;
+}
 .select > div{
     font-size: 32px;
     margin: 20px;

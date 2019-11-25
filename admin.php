@@ -41,6 +41,12 @@
             <button id="editBtn">修改</button>
             <button class="cancel">取消</button>
         </div>
+        <div id="profile">
+            <div>自傳</div>
+            <textarea name="" id="typeProfile" cols="60" rows="20"></textarea><br>
+            <button id="proBtn">修改</button>
+            <button class="cancel">取消</button>
+        </div>
     </div>
     <?php
         include_once ("./api/base.php");
@@ -53,7 +59,21 @@
     function query(table){
         $.get("./api/" + table + ".php",function(res){
             $(".content").html(res);
-            $(".edit").on("click", function(){
+            if( select == "information"){
+                $(".proEdit").on("click",function(){
+                    let uid = $(this).data("id");
+                    $.post("./api/getData.php",{"table":select, uid},function(res){
+                    let data = JSON.parse(res);
+                    $("#typeProfile").val(data[6]);
+                })
+                $("#proBtn").attr("data-id", uid);
+                $("#modal").show();
+                $("#edit").hide();
+                $("#delete").hide();
+                $("#profile").show();
+                })
+            }else{
+                $(".edit").on("click", function(){               
                 let uid = $(this).data("id");
                 console.log(uid)
                 if(select == 'work'){
@@ -71,13 +91,16 @@
                 $("#modal").show();
                 $("#edit").show();
                 $("#delete").hide();
-            })
+                $("#profile").hide();
+        })
+            }
             $(".del").on("click", function(){
                 let uid = $(this).data('id');
                 $("#delBtn").attr("data-id", uid);
                 $("#modal").show();
                 $("#edit").hide();
                 $("#delete").show();
+                $("#profile").hide();
             })
         })
     }
@@ -104,7 +127,7 @@
     
     $("#coverLetter").on("click", function(res){
         query("coverLetter_api");
-        select = "coverLetter";
+        select = "information";
         console.log(select);
 
     })
@@ -124,12 +147,24 @@
         })
     })
 
+    $("#proBtn").on("click", function(){
+        let uid = $("#proBtn").attr("data-id");
+        console.log(uid);
+        let data = [$("#typeProfile").val()];
+        console.log(data);
+        $.post("./api/edit.php",{"table":select, uid, data},function(res){
+            console.log(res);
+            $("#modal").hide();
+            query("coverLetter_api");
+        })
+    })
+
     $("#delBtn").on("click", function(){
         let uid = $("#delBtn").data("id");
         console.log(uid ,select);
         $.post("./api/del.php",{"table":select,uid},function(res){
             $("#modal").hide();
-           query(select+"_api");
+           query("coverLetter_api");
         })
     })
 
@@ -137,6 +172,7 @@
         $("#modal").hide();
     })
    
+  
     </script>
 </body>
 </html>
