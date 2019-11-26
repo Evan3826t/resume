@@ -16,18 +16,22 @@
 <body>
     <div class="main">
         <div class="title">
-        <?php
-        include_once ("./api/base.php");
-        $profile =selectA("information");
-        foreach( $profile as $row){
-            echo "<p>".$profile[0]['name'].'</p>';
-            echo "<p>".$profile[0]['birthday'].'</p>';
-            echo "<p>".$profile[0]['addr'].'</p>';
-            echo "<p>".$profile[0]['Education'].'</p>';
-            echo "<p>".$profile[0]['major'].'</p>';
-        }
-        // print_r($profile);
-        ?>
+            <div class="photo"></div>
+            <div class="information">
+                <?php
+                    include_once ("./api/base.php");
+                    $profile =selectA("information");
+                    foreach( $profile as $row){
+                        echo "<p>".$profile[0]['name'].'</p>';
+                        echo "<p>".$profile[0]['birthday'].'</p>';
+                        echo "<p>".$profile[0]['addr'].'</p>';
+                        echo "<p>".$profile[0]['Education'].'</p>';
+                        echo "<p>".$profile[0]['major'].'</p>';
+                    }
+                ?>
+            
+            </div>
+        
         </div>
         <div class="login">登入</div>
         <div class="middle">
@@ -39,7 +43,7 @@
             </div>
             <div class="content">
                 <?php
-                    $do = (!empty($_GET['do']))?$_GET['do']:'skills';
+                    $do = (!empty($_GET['do']))?$_GET['do']:'skill';
                     $path = "./" . $do . ".php";
 
                     if(file_exists($path)){
