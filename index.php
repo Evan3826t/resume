@@ -16,7 +16,7 @@
 <body>
     <div class="main">
         <div class="title">
-            <div class="photo"></div>
+            <div class="photo"><img src="./img/123.jpg" alt=""></div>
             <div class="information">
                 <?php
                     include_once ("./api/base.php");

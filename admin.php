@@ -15,7 +15,27 @@
 </head>
 <body>
     <div class="main">
-        <div class="title"></div>
+        <div class="title">
+            <div class="photo"><img src="./img/123.jpg" alt=""></div>
+            <div class="information">
+                <?php
+                    include_once ("./api/base.php");
+                    $profile =selectA("information");
+                    foreach( $profile as $row){
+                        echo "<input type='hidden' id='id' name='id' value='$row[id]'><br>";
+                        echo "姓名：<input type='text' id='name' name='name' value='$row[name]'><br>";
+                        echo "生日：<input type='text' id='birthday' name='birthday' value='$row[birthday]'><br>";
+                        echo "聯絡地址：<input type='text' id='addr' name='addr' value='$row[addr]'><br>";
+                        echo "畢業學校：<input type='text' id='Education' name='Education' value='$row[Education]'><br>";
+                        echo "科系：<input type='text' id='major' name='major' value='$row[major]'><br>";
+                    }
+                ?>
+                <input type="button" value="修改" id="profileEdit">
+                <input type="button" value="重置">
+            </div>
+
+        
+        </div>
         <div class="login">登出</div>
         <div class="middle">
             <div class="select">
@@ -171,6 +191,20 @@
     $(".cancel").on("click", function(){
         $("#modal").hide();
     })
+   $(function(){
+    $("$profileEdit").on("click", function(){
+       let data= [];
+       let uid= $("#id").val();
+       data['name']= $("#name").val();
+       data['birthday']= $("#birthday").val();
+       data['addr']= $("#addr").val();
+       data['Education']= $("#Education").val();
+       data['major']= $("#major").val();
+       $.post("./api/edit.php", {"table":"information", uid, data}, function(res){
+            console.log(res);
+       })
+   })
+   })
    
   
     </script>

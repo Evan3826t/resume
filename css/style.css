@@ -17,7 +17,14 @@
     height: 100%;
     display: inline-block;
     position: absolute;
-    
+    /* background-image: url(../img/123.jpg);
+    background-size: cover; */
+}
+.photo img{
+    margin: 30px;
+    width: 60%;
+    height: 80%;
+
 }
 .information{
     width: calc( 1024px - 300px);
