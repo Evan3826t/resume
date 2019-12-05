@@ -189,7 +189,7 @@
         console.log(uid ,select);
         $.post("./api/del.php",{"table":select,uid},function(res){
             $("#modal").hide();
-           query("coverLetter_api");
+           query( select + "_api");
         })
     })
 
