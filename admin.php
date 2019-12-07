@@ -72,6 +72,10 @@
             <button id="proBtn">修改</button>
             <button class="cancel">取消</button>
         </div>
+        <div id="photo">
+            <div>更換照片</div>
+            <form action="./api/photoChange.php"></form>
+        </div>
     </div>
     <?php
         include_once ("./api/base.php");

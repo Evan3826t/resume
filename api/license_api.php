@@ -39,6 +39,6 @@ foreach($data as $row){
                 query( "license_api");
             })
         })
-
+        $("#addItem").attr("disabled", true);
     })
 </script>

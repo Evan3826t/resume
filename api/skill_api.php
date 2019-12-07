@@ -38,6 +38,6 @@ foreach($data as $row){
                 query( "skill_api");
             })
         })
-
+        $("#addItem").attr("disabled", true);
     })
 </script>

@@ -42,5 +42,5 @@ foreach($data as $row){
                 query( "work_api");
             })
         })
-
+        $("#addItem").attr("disabled", true);
     })
