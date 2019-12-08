@@ -43,4 +43,7 @@ foreach($data as $row){
             })
         })
         $("#addItem").attr("disabled", true);
+        $(".cancel").on( "click", function(){
+            query( "work_api");
+        })
     })

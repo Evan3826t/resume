@@ -71,7 +71,7 @@
     top: 0;
     left: 0;
 }
-#log , #delete , #edit{
+#log , #delete , #edit , #photoChange{
     width: 250px;
     height: 150px;
     margin: auto;

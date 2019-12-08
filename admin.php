@@ -72,10 +72,14 @@
             <button id="proBtn">修改</button>
             <button class="cancel">取消</button>
         </div>
-        <div id="photo">
+        <div id="photoChange">
             <div>更換照片</div>
-            <form action="./api/photoChange.php"></form>
-        </div>
+            <form action="./api/photoChange.php" method="POST">
+                選擇檔案：<input type="file" name="name">
+                <br><br><input type="submit" value="確認">
+            </form>
+                <button class="cancel">取消</button>
+        </選擇檔案：<input>
     </div>
     <?php
         include_once ("./api/base.php");
@@ -100,6 +104,8 @@
                 $("#edit").hide();
                 $("#delete").hide();
                 $("#profile").show();
+                $("#profile").show();
+                $("#photoChange").hide();
                 })
             }else{
                 $(".edit").on("click", function(){               
@@ -121,6 +127,7 @@
                 $("#edit").show();
                 $("#delete").hide();
                 $("#profile").hide();
+                $("#photoChange").hide();
         })
             }
             $(".del").on("click", function(){
@@ -130,6 +137,7 @@
                 $("#edit").hide();
                 $("#delete").show();
                 $("#profile").hide();
+                $("#photoChange").hide();
             })
         })
     }
@@ -214,7 +222,14 @@
            })
         })
    })
-
+   
+   $("#photoEdit").on( "click", function(){
+    $("#modal").show();
+    $("#edit").hide();
+    $("#delete").hide();
+    $("#profile").hide();
+    $("#photoChange").show();
+   })
    
    
   

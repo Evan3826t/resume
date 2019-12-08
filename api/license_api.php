@@ -40,5 +40,9 @@ foreach($data as $row){
             })
         })
         $("#addItem").attr("disabled", true);
+        $(".cancel").on( "click", function(){
+            query( "license_api");
+        })
+
     })
 </script>
