@@ -17,7 +17,7 @@
     <div class="main">
         <div class="title">
             <div class="photo">
-                <img src="./img/123.jpg" alt=""><br>
+                <img src="./img/photo_sticker.jpg" alt=""><br>
                 <input type="button" style="margin-left:80px" id="photoEdit" value="修改照片">
             </div>
             <div class="information">
@@ -74,12 +74,12 @@
         </div>
         <div id="photoChange">
             <div>更換照片</div>
-            <form action="./api/photoChange.php" method="POST">
+            <form action="./api/photoChange.php" method="POST" enctype="multipart/form-data">
                 選擇檔案：<input type="file" name="name">
                 <br><br><input type="submit" value="確認">
             </form>
                 <button class="cancel">取消</button>
-        </選擇檔案：<input>
+        </div>
     </div>
     <?php
         include_once ("./api/base.php");
