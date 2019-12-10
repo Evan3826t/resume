@@ -14,7 +14,6 @@ foreach($data as $row){
         <td><?=$row['work']?></td>
         <td><?=$row['position']?></td>
     </tr>
-
     <?php
 }
 ?>

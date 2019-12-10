@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/jquery-3.4.1.min.js"></script>
 
    
 </head>
@@ -18,29 +16,29 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./images/coffee.png" width="30" height="30" class="d-inline-block" alt="">Resume
+                Resume
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item">
-                  <a class="nav-link" href="?do=skill">專業技能</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="?do=work"><i class="far fa-id-badge"></i> 工作經歷</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="?do=license"><i class="far fa-id-card"></i> 證照</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="?do=cover_letter">自傳</a>
-                </li>
-              </ul>
-          
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="?do=skill"><i class="fas fa-briefcase"></i> 專業技能</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="?do=work"><i class="far fa-id-badge"></i> 工作經歷</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="?do=license"><i class="far fa-id-card"></i> 證照</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="?do=cover_letter"><i class="fas fa-user-circle"></i> 自傳</a>
+                    </li>
+                    <li class="nav-item ">
+                        <div class="login">登入</div>
+                    </li>
+                  </ul>
             </div>
         </div>
     </nav>
@@ -63,7 +61,7 @@
             </div>
         
         </div>
-        <div class="login">登入</div>
+        
         <div class="middle">
             <?php
                 $do = (!empty($_GET['do']))?$_GET['do']:'skill';
@@ -85,6 +83,9 @@
             <button id="logcancel">取消</button>
         </div>
     </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
     <script>
     $(".login").on("click", function(){
         $("#modal").show();
