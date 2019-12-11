@@ -19,6 +19,19 @@
     /* background-image: url(../img/123.jpg);
     background-size: cover; */
 }
+.left{
+    position: absolute;
+    display: inline-block;
+    width: 500px;
+    padding-left: 150px;
+}
+.right{
+    position: absolute;
+    display: inline-block;
+    width: 500px;
+    left: 500px;
+    padding-left: 150px;
+}
 .photo img{
     margin: 30px;
     width: 60%;
@@ -52,6 +65,7 @@
     position: absolute;
     left: 200px;
     display: inline-block;
+    padding: 20px;
 }
 .login{
     position: absolute;
@@ -98,10 +112,15 @@
 }
 .select > div{
     font-size: 32px;
-    margin: 20px;
-    margin-top: 60px;
+    margin: 0;
     text-align: center;
+    height: 80px;
+    width: 100%;
+    line-height: 80px;
 }
 a{
     text-decoration: none;
+}
+td{
+    margin: 10px;
 }

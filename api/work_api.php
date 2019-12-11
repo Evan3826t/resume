@@ -1,5 +1,10 @@
+<style>
+td{
+    width: 100px;
+}
+</style>
 <H2>工作經歷</H2>
-<table id="tb">
+<table id="tb" style="text-align:center">
     <input type="button" id="addItem" value="新增">
     <tr>
         <td>公司名稱</td>

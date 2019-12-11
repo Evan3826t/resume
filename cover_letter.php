@@ -3,7 +3,7 @@
 <?php
 include_once ("./api/base.php");
 
-$data = selectA("coverLetter");
+$data = selectA("information");
 ?>
 <div><?=$data[0]['profile']?></div>
 <?php

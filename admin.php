@@ -48,6 +48,7 @@
                 <div id="work">工作經歷 <i class="fas fa-angle-right"></i></a></div>
                 <div id="license">證照 <i class="fas fa-angle-right"></i></a></div>
                 <div id="coverLetter">自傳 <i class="fas fa-angle-right"></i></a></div>
+                <div id="newwork">求職狀態<i class="fas fa-angle-right"></i></a></div>
             </div>
             <div class="content">
             </div>
@@ -63,6 +64,9 @@
             <div>確認修改?</div>
             <input id="type1" type="text"><br>
             <input id="type2" type="text"><br>
+            <input id="type3" type="text"><br>
+            <input id="type4" type="text"><br>
+            <input id="type5" type="text"><br>
             <button id="editBtn">修改</button>
             <button class="cancel">取消</button>
         </div>
@@ -111,15 +115,28 @@
                 $(".edit").on("click", function(){               
                 let uid = $(this).data("id");
                 console.log(uid)
-                if(select == 'work'){
+                if(select == 'newwork'){
+                    $("#type2").show();
+                    $("#type3").show();
+                    $("#type4").show();
+                    $("#type5").show();
+                }else if(select == 'work'){
                     $("#type2").show();
                 }else{
                     $("#type2").hide();
+                    $("#type3").hide();
+                    $("#type4").hide();
+                    $("#type5").hide();
                 }
+                
+                
                 $.post("./api/getData.php",{"table":select, uid},function(res){
                     let data = JSON.parse(res);
                     $("#type1").val(data[1]);
                     $("#type2").val(data[2]);
+                    $("#type3").val(data[3]);
+                    $("#type4").val(data[4]);
+                    $("#type5").val(data[5]);
                 })
 
                 $("#editBtn").attr("data-id", uid);
@@ -146,28 +163,54 @@
         query("skill_api");
         select = "skill";
         console.log(select);
+        $("#skill").css("background-color", "#F5F5F5");
+        $("#work").css("background-color", "white");
+        $("#license").css("background-color", "white");
+        $("#coverLetter").css("background-color", "white");
+        $("#newwork").css("background-color", "white");
     })
 
     $("#work").on("click", function(res){
         query("work_api");
         select = "work";
         console.log(select);
-
+        $("#skill").css("background-color", "white");
+        $("#work").css("background-color", "#F5F5F5");
+        $("#license").css("background-color", "white");
+        $("#coverLetter").css("background-color", "white");
+        $("#newwork").css("background-color", "white");
     })
     
     $("#license").on("click", function(res){
         query("license_api");
         select = "license";
         console.log(select);
-
+        $("#skill").css("background-color", "white");
+        $("#work").css("background-color", "white");
+        $("#license").css("background-color", "#F5F5F5");
+        $("#coverLetter").css("background-color", "white");
+        $("#newwork").css("background-color", "white");
     })
     
     $("#coverLetter").on("click", function(res){
         query("coverLetter_api");
         select = "information";
         console.log(select);
-
+        $("#skill").css("background-color", "white");
+        $("#work").css("background-color", "white");
+        $("#license").css("background-color", "white");
+        $("#coverLetter").css("background-color", "#F5F5F5");
+        $("#newwork").css("background-color", "white");
     })
+    $("#newwork").on("click", function(res){
+        query("newwork_api");
+        select = "newwork";
+        console.log(select);
+        $("#skill").css("background-color", "white");
+        $("#work").css("background-color", "white");
+        $("#license").css("background-color", "white");
+        $("#coverLetter").css("background-color", "white");
+        $("#newwork").css("background-color", "#F5F5F5");    })
     
     $("#editBtn").on("click", function(){
         let uid = $("#editBtn").attr("data-id");
@@ -175,6 +218,12 @@
         let data = [$("#type1").val()];
         if(select == "work"){
             data.push($("#type2").val());
+        }
+        if(select == "newwork"){
+            data.push($("#type2").val());
+            data.push($("#type3").val());
+            data.push($("#type4").val());
+            data.push($("#type5").val());
         }
         console.log(data);
         $.post("./api/edit.php",{"table":select, uid, data},function(res){

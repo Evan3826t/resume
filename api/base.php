@@ -39,6 +39,9 @@ function insert( $table, $value){
         case "license": 
             $sql = "insert into $table( `license`) value('$value[0]')";
         break;
+        case "newwork": 
+            $sql = "insert into $table( `license`) value('$value[0]')";
+        break;
     }
     return $pdo->exec($sql);
 }
@@ -61,6 +64,9 @@ function edit( $table, $id, $data){
         break;
         case "informationP":
             $sql = "UPDATE `information` SET `name`='$data[0]',`birthday`='$data[1]',`addr`='$data[2]',`Education`='$data[3]',`major`='$data[4]'";
+        break;
+        case "newwork":
+            $sql = "UPDATE `newwork` SET `work_type`='$data[0]',`location`='$data[1]',`salary`='$data[2]',`position`='$data[3]', `sh`='$data[4]'";
         break;
     }
     $sql = $sql . "where `id`=$id";

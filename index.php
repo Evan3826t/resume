@@ -30,7 +30,7 @@
                       <a class="nav-link" href="?do=work"><i class="far fa-id-badge"></i> 工作經歷</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="?do=license"><i class="far fa-id-card"></i> 證照</a>
+                      <a class="nav-link" href="?do=newwork"><i class="far fa-id-card"></i> 求職狀態</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="?do=cover_letter"><i class="fas fa-user-circle"></i> 自傳</a>
@@ -61,7 +61,7 @@
             </div>
         
         </div>
-        
+        <hr>
         <div class="middle">
             <?php
                 $do = (!empty($_GET['do']))?$_GET['do']:'skill';
