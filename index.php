@@ -35,6 +35,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="?do=cover_letter"><i class="fas fa-user-circle"></i> 自傳</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="?do=portfolio"><i class="fas fa-file-signature"></i> 作品集</a>
+                    </li>
                     <li class="nav-item ">
                         <div class="login">登入</div>
                     </li>

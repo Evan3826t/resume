@@ -14,6 +14,13 @@ function selectA( $table){
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function editSh( $table, $id, $sh){
+    global $pdo;
+    $sql = "UPDATE `newwork` SET `sh`='$sh' where `id`=$id";
+    echo $pdo->exec($sql);
+    echo $sql;
+}
+
 function selectById( $table, $id){
     global $pdo;
     $sql = "select * from $table where `id`='$id'";
@@ -66,7 +73,7 @@ function edit( $table, $id, $data){
             $sql = "UPDATE `information` SET `name`='$data[0]',`birthday`='$data[1]',`addr`='$data[2]',`Education`='$data[3]',`major`='$data[4]'";
         break;
         case "newwork":
-            $sql = "UPDATE `newwork` SET `work_type`='$data[0]',`location`='$data[1]',`salary`='$data[2]',`position`='$data[3]', `sh`='$data[4]'";
+            $sql = "UPDATE `newwork` SET `work_type`='$data[0]',`location`='$data[1]',`salary`='$data[2]',`position`='$data[3]'";
         break;
     }
     $sql = $sql . "where `id`=$id";

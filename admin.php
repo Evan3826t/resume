@@ -49,6 +49,7 @@
                 <div id="license">證照 <i class="fas fa-angle-right"></i></a></div>
                 <div id="coverLetter">自傳 <i class="fas fa-angle-right"></i></a></div>
                 <div id="newwork">求職狀態<i class="fas fa-angle-right"></i></a></div>
+                <div id="portfolio">作品集<i class="fas fa-angle-right"></i></a></div>
             </div>
             <div class="content">
             </div>
@@ -66,7 +67,7 @@
             <input id="type2" type="text"><br>
             <input id="type3" type="text"><br>
             <input id="type4" type="text"><br>
-            <input id="type5" type="text"><br>
+            <input id="type5" name="sh" type="checkbox" value="" ><br>
             <button id="editBtn">修改</button>
             <button class="cancel">取消</button>
         </div>
@@ -85,8 +86,12 @@
                 <button class="cancel">取消</button>
         </div>
     </div>
+    
+        
+    
     <?php
         include_once ("./api/base.php");
+        
     ?>
     <script>
     $(".login").on("click", function(){
@@ -107,7 +112,6 @@
                 $("#modal").show();
                 $("#edit").hide();
                 $("#delete").hide();
-                $("#profile").show();
                 $("#profile").show();
                 $("#photoChange").hide();
                 })
@@ -130,13 +134,21 @@
                 }
                 
                 
-                $.post("./api/getData.php",{"table":select, uid},function(res){
-                    let data = JSON.parse(res);
-                    $("#type1").val(data[1]);
-                    $("#type2").val(data[2]);
-                    $("#type3").val(data[3]);
-                    $("#type4").val(data[4]);
-                    $("#type5").val(data[5]);
+                    $.post("./api/getData.php",{"table":select, uid},function(res){
+                        let data = JSON.parse(res);
+                        $("#type1").val(data[1]);
+                        $("#type2").val(data[2]);
+                        $("#type3").val(data[3]);
+                        $("#type4").val(data[4]);
+                        if(data[5] == 1){
+                            $("#type5").prop("checked",true);
+                            
+                        }else{
+                            $("#type5").prop("checked",false);
+                        }
+                        $("#type5").val(uid);
+                        
+                       
                 })
 
                 $("#editBtn").attr("data-id", uid);
@@ -149,7 +161,7 @@
             }
             $(".del").on("click", function(){
                 let uid = $(this).data('id');
-                $("#delBtn").attr("data-id", uid);
+                $("#delBtn").data("id", uid);
                 $("#modal").show();
                 $("#edit").hide();
                 $("#delete").show();
@@ -168,6 +180,7 @@
         $("#license").css("background-color", "white");
         $("#coverLetter").css("background-color", "white");
         $("#newwork").css("background-color", "white");
+        $("#portfolio").css("background-color", "white");       
     })
 
     $("#work").on("click", function(res){
@@ -179,6 +192,7 @@
         $("#license").css("background-color", "white");
         $("#coverLetter").css("background-color", "white");
         $("#newwork").css("background-color", "white");
+        $("#portfolio").css("background-color", "white");       
     })
     
     $("#license").on("click", function(res){
@@ -190,6 +204,7 @@
         $("#license").css("background-color", "#F5F5F5");
         $("#coverLetter").css("background-color", "white");
         $("#newwork").css("background-color", "white");
+        $("#portfolio").css("background-color", "white");       
     })
     
     $("#coverLetter").on("click", function(res){
@@ -201,6 +216,7 @@
         $("#license").css("background-color", "white");
         $("#coverLetter").css("background-color", "#F5F5F5");
         $("#newwork").css("background-color", "white");
+        $("#portfolio").css("background-color", "white");       
     })
     $("#newwork").on("click", function(res){
         query("newwork_api");
@@ -210,8 +226,22 @@
         $("#work").css("background-color", "white");
         $("#license").css("background-color", "white");
         $("#coverLetter").css("background-color", "white");
-        $("#newwork").css("background-color", "#F5F5F5");    })
+        $("#newwork").css("background-color", "#F5F5F5");    
+        $("#portfolio").css("background-color", "white");       
+        })
+        
     
+    $("#portfolio").on("click", function(res){
+        query("portfolio_api");
+        select = "portfolio";
+        $("#skill").css("background-color", "white");
+        $("#work").css("background-color", "white");
+        $("#license").css("background-color", "white");
+        $("#coverLetter").css("background-color", "white");
+        $("#newwork").css("background-color", "white");    
+        $("#portfolio").css("background-color", "#F5F5F5");       
+    })
+
     $("#editBtn").on("click", function(){
         let uid = $("#editBtn").attr("data-id");
         console.log(uid);
@@ -223,7 +253,17 @@
             data.push($("#type2").val());
             data.push($("#type3").val());
             data.push($("#type4").val());
-            data.push($("#type5").val());
+            
+            console.log($("#type5").val());
+            if($("#type5").prop('checked')==true){
+                data.push($("#type5").val());
+                console.log("nike");
+            //如給被勾選將做什麼事
+            }else{
+                data.push(0);
+                console.log("adidas");
+            //沒被勾選做什麼事
+            }
         }
         console.log(data);
         $.post("./api/edit.php",{"table":select, uid, data},function(res){
@@ -246,7 +286,7 @@
     })
 
     $("#delBtn").on("click", function(){
-        let uid = $("#delBtn").data("id");
+        let uid = $(this).data("id");
         console.log(uid ,select);
         $.post("./api/del.php",{"table":select,uid},function(res){
             $("#modal").hide();
@@ -256,10 +296,6 @@
 
     $(".cancel").on("click", function(){
         $("#modal").hide();
-    })
-
-    $("#photoEdit").on("click", function(){
-        
     })
 
    $(function(){
