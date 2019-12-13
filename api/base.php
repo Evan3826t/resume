@@ -1,7 +1,7 @@
 <?php
 
 $dsn = "mysql:host=localhost;charset=utf8;dbname=resume";
-$pdo = new PDO($dsn,"root","");
+$pdo = new PDO($dsn,"root","123");
 
 function select( $table,$value){
     global $pdo;

@@ -33,7 +33,7 @@ if(!empty($_FILES) && $_FILES['file']['error']==0){
 <form action="./api/portfolio_add.php" method="post" enctype="multipart/form-data">
   檔案：<input type="file" name="file" ><br><br>
   說明：<input type="text" name="text" ><br>
-  <input type="submit" value="上傳">
+  <input type="submit" class="btn" value="上傳">
 </form>
 
 <!----透過資料表來顯示檔案的資訊，並可對檔案執行更新或刪除的工作----->
@@ -55,7 +55,7 @@ if(!empty($_FILES) && $_FILES['file']['error']==0){
         <td><?=$file['name'];?></td>
         <td><img src="<?=$file['path'];?>" style="width:100px;height:50px;"></td>
         <td>
-            <button class='del' data-id="<?=$file['id'];?>">刪除檔案</button>
+            <button class='del btn' data-id="<?=$file['id'];?>">刪除檔案</button>
         
         </td>
     </tr>

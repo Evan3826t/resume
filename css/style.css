@@ -124,7 +124,7 @@ a{
 td{
     margin: 10px;
 }
-button, .edit, .del, #addItem, .proEdit{
+.btn{
     display: inline-block;
     border: 1px solid #ccc;
     padding: 5px 15px;

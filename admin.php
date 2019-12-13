@@ -18,7 +18,7 @@
         <div class="title">
             <div class="photo">
                 <img src="./img/photo_sticker.jpg" alt=""><br>
-                <input type="button" style="margin-left:80px" id="photoEdit" value="修改照片">
+                <input type="button" class="btn" style="margin-left:80px; margin-top: -50px" id="photoEdit" value="修改照片">
             </div>
             <div class="information">
                 <form action="">
@@ -34,8 +34,8 @@
                             echo "科系：<input type='text' id='major' name='major' value='$row[major]'><br>";
                         }
                     ?>
-                    <input type="button" value="修改" id="profileEdit">
-                    <input type="reset" value="重置">
+                    <input type="button" class="btn" value="修改" id="profileEdit">
+                    <input type="reset" class="btn" value="重置">
                 </form>
             </div>
 
@@ -58,8 +58,8 @@
     <div id="modal">
         <div id="delete">
             <div>確認刪除?</div>
-            <button id="delBtn">刪除</button>
-            <button class="cancel">取消</button>
+            <button class="btn" id="delBtn">刪除</button>
+            <button class="cancel btn">取消</button>
         </div>
         <div id="edit">
             <div>確認修改?</div>
@@ -68,22 +68,22 @@
             <input id="type3" type="text"><br>
             <input id="type4" type="text"><br>
             <input id="type5" name="sh" type="checkbox" value="" ><br>
-            <button id="editBtn">修改</button>
-            <button class="cancel">取消</button>
+            <button id="editBtn" class="btn">修改</button>
+            <button class="cancel btn">取消</button>
         </div>
         <div id="profile">
             <div>自傳</div>
             <textarea name="" id="typeProfile" cols="60" rows="20"></textarea><br>
-            <button id="proBtn">修改</button>
-            <button class="cancel">取消</button>
+            <button id="proBtn" class="btn">修改</button>
+            <button class="cancel btn">取消</button>
         </div>
         <div id="photoChange">
             <div>更換照片</div>
             <form action="./api/photoChange.php" method="POST" enctype="multipart/form-data">
-                選擇檔案：<input type="file" name="name">
-                <br><br><input type="submit" value="確認">
+                選擇檔案：<input type="file"  name="name">
+                <br><br><input type="submit" class="btn" value="確認">
             </form>
-                <button class="cancel">取消</button>
+                <button class="cancel btn">取消</button>
         </div>
     </div>
     

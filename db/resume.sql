@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-12 16:48:19
+-- 產生時間： 2019-12-13 08:47:01
 -- 伺服器版本： 10.4.6-MariaDB
 -- PHP 版本： 7.3.9
 
@@ -63,12 +63,7 @@ CREATE TABLE `license` (
 --
 
 INSERT INTO `license` (`id`, `license`) VALUES
-(1, '電腦輔'),
-(3, 'jhkhgj'),
-(4, '電腦輔'),
-(5, 'jhkhgj'),
-(6, '電腦輔'),
-(7, 'jhkhgj');
+(1, '電腦輔助立體製圖');
 
 -- --------------------------------------------------------
 
@@ -90,10 +85,9 @@ CREATE TABLE `newwork` (
 --
 
 INSERT INTO `newwork` (`id`, `work_type`, `location`, `salary`, `position`, `sh`) VALUES
-(2, '全職1', '新北市', 50000, '後端工程師', 0),
-(8, '全職2', '新北市', 50000, '後端工程師', 1),
-(9, '全職3', '新北市', 50000, '後端工程', 0),
-(10, '全職4', '新北市', 50000, '後端工程師', 0);
+(2, '全職', '新北市', 45000, '後端工程師', 0),
+(8, '全職', '新北市', 45000, '全端工程師', 0),
+(9, '全職', '新北市', 45000, '全端工程師', 1);
 
 -- --------------------------------------------------------
 
@@ -114,9 +108,9 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`id`, `name`, `type`, `path`, `text`) VALUES
-(1, '123.jpg', 'jpg', './img/123.jpg', '測試'),
-(16, 'code.png', 'image/png', './img/code.png', '+98'),
-(18, 'code.png', 'image/png', './img/code.png', '6546');
+(19, 'calendar.jpg', 'image/jpeg', './img/calendar.jpg', '萬年曆'),
+(20, 'invoice.jpg', 'image/jpeg', './img/invoice.jpg', '發票程式'),
+(21, 'log_in.jpg', 'image/jpeg', './img/log_in.jpg', '註冊登入系統');
 
 -- --------------------------------------------------------
 
@@ -136,11 +130,13 @@ CREATE TABLE `skill` (
 INSERT INTO `skill` (`id`, `skill`) VALUES
 (1, 'JavaScript'),
 (5, 'CSS'),
-(11, 'JavaScript'),
-(12, 'CSS'),
-(13, 'JavaScript'),
-(14, 'CSS'),
-(15, 'JavaScript');
+(17, 'HTML'),
+(18, 'PHP'),
+(19, 'LabVIEW'),
+(20, 'Solidworks'),
+(21, 'SolidEdge'),
+(22, 'autoCAD'),
+(23, 'C++');
 
 -- --------------------------------------------------------
 
@@ -159,8 +155,7 @@ CREATE TABLE `work` (
 --
 
 INSERT INTO `work` (`id`, `work`, `position`) VALUES
-(1, '創研光電', '機構工程師'),
-(2, '創研光電', '機構工程師');
+(1, '創研光電', '機構工程師');
 
 --
 -- 已傾印資料表的索引
@@ -228,13 +223,13 @@ ALTER TABLE `newwork`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=22;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `work`

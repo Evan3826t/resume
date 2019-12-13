@@ -32,8 +32,8 @@ td{
             echo "<td>X</td>";
         }
         
-        echo "<td><input type='button' class='edit'  data-id='" . $value['id'] . "' value='修改'></td>";
-        echo "<td><input type='button' class='del'  data-id='" . $value['id'] . "' value='刪除'></td>";
+        echo "<td><input type='button' class='edit btn'  data-id='" . $value['id'] . "' value='修改'></td>";
+        echo "<td><input type='button' class='del btn'  data-id='" . $value['id'] . "' value='刪除'></td>";
         echo "</tr>";
     }
    
